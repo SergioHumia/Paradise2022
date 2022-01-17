@@ -1,0 +1,10 @@
+
+.titulo{
+  font-family: 'Cabin Condensed', sans-serif;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+}
+svg{font-weight:bold;max-width:600px;height:auto;}
