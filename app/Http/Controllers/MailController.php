@@ -11,10 +11,10 @@ class MailController extends Controller
     public function sendEmail() {
         $details=[
             'title' =>  'Correo del servidor Excursiones Paradise',
-            'body'  =>  'Este correo es un ejemplo para ver si funciona jeje'
+            'body'  =>  'Le damos la bienvenida a nuestro web, esperamos que le sea de buen grado todos nuestros servicios. Un saludo, Excursiones Paradise.'
         ];
 
-        Mail::to("alexisgilcabrera@gmail.com")->send(new TestMail($details));
+        Mail::to("exc.paradise@gmail.com")->send(new TestMail($details));
         return "Correo Electrónico ENVIADO";
     }
 }
