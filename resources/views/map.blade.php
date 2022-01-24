@@ -18,46 +18,24 @@
 
         <style>
             body {
-                font-family: 'Nunito', sans-serif;}
+                font-family: 'Nunito', sans-serif;
+            }
 
             div.relative {
-                background-color: #111;}
+                background-color: #111;
+            }
 
             .blanco a {
-                color: white;}
-
-            div.mapa {
                 color: white;
-                text-align: center;
-                margin-bottom: 1%;
-                margin-right: 25%;
-                margin-left: 25%;
             }
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block blanco">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Menú principal</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Autentificar</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrar</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-            
-            <div class="title">
-                <h1>EXCURSIONES<br/>PARADISE</h1>
-            </div>
-        </div>
-        <div class="mapa">
-            <h2>¿DE DONDE SOMOS?</h2>
-            <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/s3gy/ckyt88can000315ni5vjmqtre.html?title=false&access_token=pk.eyJ1IjoiczNneSIsImEiOiJja3l0ODRrMGYxYjFmMndvNXU0MjhodDJxIn0.up_3pSiv-ZBOxW8gVruxmQ&zoomwheel=false#12.84/28.96683/-13.5517" title="Satellite Streets" style="outline: 4px ridge white; border-radius: 2rem;"></iframe>
-        </div>
+        <x-maps-leaflet
+            :centerPoint="['lat' => 52.16444513293423, 'long' => 5.985622388024091]"
+            :zoomLevel="12"
+            :markers="[['lat' => 52.1644513293423, 'long' => 5.985622388024091]]"
+        >
+        </x-maps-leaflet>
     </body>
 </html>
